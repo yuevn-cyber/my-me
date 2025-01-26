@@ -1,0 +1,13 @@
+body{
+    background-image: url("/images/Góc nhỏ/khung long.jpg")  ;
+    background-position: center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    
+
+
+}
+#Tiêu1 {
+   color:rgb(20, 220, 127);
+}
