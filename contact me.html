@@ -6,13 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="me" >
     <a href="./">Home</a>
     <a href="contact me.html">Contact Me</a>
     <a href="images.html">Images</a>
     <a href="video.html">Video</a>
+    <br>
+    <br>
+    <input type="checkbox">
+    <img src="images.jpg" title="Đang đợi..." width="500px">
+    <br>
+    <br>
+    &copy;buttons
+    <button onclick="changeText()" style="border-radius: 20px; background-color: cornsilk;">click me</button>
+    <h1 id="h1id">Chào mọi người nhé</h1>
+    <script>
+        changeText = () => {
+            document.getElementById("h1id").innerHTML = "Tôi là femg mong kb với mn&crarr;"
+        }
+    </script>
+
+
+
+
+
+
 
 </body>
 

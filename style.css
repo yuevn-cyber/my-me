@@ -8,3 +8,23 @@
 #Tiêu1 {
    color:rgb(20, 220, 127);
 }
+input:checked ~ img {
+    opacity:0;
+    /* display:none; */
+    visibility:hidden;
+}
+#h1id{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:aquamarine
+}
+#me{
+    background-image: url("IMG_20241204_071233_207.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+img{
+    transition:1.5s
+}
