@@ -28,3 +28,10 @@ input:checked ~ img {
 img{
     transition:1.5s
 }
+#game{
+    background-image: url("./Kỉ niệm game/alan-bajura-mWqGD6Q5yp4-unsplash.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
