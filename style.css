@@ -4,9 +4,14 @@
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment:fixed;
+    
     }
 #Tiêu1 {
-   color:rgb(20, 220, 127);
+   color:rgb(220, 20, 100);
+   text-transform:uppercase;
+   text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 input:checked ~ img {
     opacity:0;
