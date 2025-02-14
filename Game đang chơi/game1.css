@@ -1,0 +1,15 @@
+a:hover{
+    color:chartreuse;
+}
+a:link{
+    color:blue;
+}
+a:visited{
+    color:red;
+}
+a:active{
+    pink;
+}
+*{
+    margin:5px;
+}
