@@ -10,3 +10,9 @@ a:visited{
 a:active{
     pink;
 }
+.learn{
+    border:2px solid yellow;
+    display:inline-block;
+    background-color: aquamarine;
+    color:darkmagenta;
+}
