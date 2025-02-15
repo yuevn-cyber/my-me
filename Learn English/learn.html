@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>Đọc file Excel</title>
-    <!-- Thư viện SheetJS (xlsx.js) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <title>Đọc file Excel - Local</title>
+    <!-- Sử dụng file SheetJS đã tải về -->
+    <script src="xlsx.full.min.js"></script>
     <style>
         table {
             border-collapse: collapse;
@@ -24,48 +24,31 @@
 </head>
 
 <body>
-    <a href="../index.html">Home</a>
-    <br>
-    <br>
-    <script src="main.js"></script>
     <input type="file" id="excelFile" accept=".xlsx">
     <div id="output"></div>
 
     <script>
         document.getElementById('excelFile').addEventListener('change', function (e) {
-            // Đọc file Excel
             const file = e.target.files[0];
             const reader = new FileReader();
 
             reader.onload = function (e) {
                 const data = new Uint8Array(e.target.result);
                 const workbook = XLSX.read(data, { type: 'array' });
-
-                // Lấy dữ liệu từ Sheet1
                 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                 const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
                 // Tạo bảng HTML
                 let html = '<table>';
+                jsonData[0].forEach(header => html += `<th>${header}</th>`);
 
-                // Tạo header
-                html += '<tr>';
-                jsonData[0].forEach(header => {
-                    html += `<th>${header}</th>`;
-                });
-                html += '</tr>';
-
-                // Tạo các dòng dữ liệu
                 for (let i = 1; i < jsonData.length; i++) {
                     html += '<tr>';
-                    jsonData[i].forEach(cell => {
-                        html += `<td>${cell || ''}</td>`;
-                    });
+                    jsonData[i].forEach(cell => html += `<td>${cell || ''}</td>`);
                     html += '</tr>';
                 }
 
-                html += '</table>';
-                document.getElementById('output').innerHTML = html;
+                document.getElementById('output').innerHTML = html + '</table>';
             };
 
             reader.readAsArrayBuffer(file);
