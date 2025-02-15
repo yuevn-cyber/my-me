@@ -1,0 +1,41 @@
+*{
+    background-color:cornsilk;
+}
+h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    opacity:30%;
+    
+}
+.learn{
+    font-size:30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+a:hover{
+    color:chartreuse;
+}
+a:link{
+    color:blue;
+}
+a:visited{
+    color:red;
+}
+a:active{
+    pink;
+}
+img{
+    width:500px;
+    border-radius: 100%;
+    border: 10px solid #c71585 ;
+    margin-left:1000px;
+    
+}
+.hop{
+    margin-left: 980px;
+}
+input:checked ~ img{
+    opacity:0;
+    display:none;
+
+}
