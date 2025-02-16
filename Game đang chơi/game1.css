@@ -13,3 +13,15 @@ a:active{
 *{
     margin:5px;
 }
+body{
+    background-image: url("./img/anh1.jpg");
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat:no-repeat ;
+}
+.img{
+    width:100px;
+    border-radius: 20%;
+    border:2px solid black;
+}
