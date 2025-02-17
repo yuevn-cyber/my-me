@@ -2,53 +2,30 @@
 <html>
 
 <head>
-    <title>Trình Phát Video Local</title>
-    <style>
-        /* CSS styling */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            font-family: Arial, sans-serif;
-        }
+    <title>Pod Cast</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My me</title>
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css" class="">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../icon cún/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../icon cún/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../icon cún/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../icon cún/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../icon cún/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../icon cún/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../icon cún/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../icon cún/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../icon cún/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../icon cún/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../icon cún/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../icon cún/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../icon cún/favicon-16x16.png">
+    <link rel="manifest" href="../../icon cún/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../icon cún/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-        #videoPlayer {
-            width: 100%;
-            background: #000;
-        }
-
-        .controls {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        button {
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        .playlist {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-
-        .playlist-item {
-            padding: 8px;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
-
-        .playlist-item:hover {
-            background: #f5f5f5;
-        }
-
-        .active {
-            background: #e3f2fd !important;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
@@ -67,13 +44,14 @@
         <!-- Playlist -->
         <div class="playlist" id="playlist"></div>
     </div>
-
     <script>
         // Danh sách video local (thay đổi theo file của bạn)
         const videos = [
-            { title: "Video 1", src: "./videos/poscat.mp4" },
-            { title: "Video 2", src: "./videos/poscat1.mp4" },
-            { title: "Video 3", src: "./videos/poscat2.mp4" }
+
+            { title: "Video 1", src: "../videos/poscat.mp4" },
+            { title: "Video 2", src: "../videos/poscat1.mp4" },
+            { title: "Video 3", src: "../videos/poscat2.mp4" }
+            // { title: "Video 4", src: "../videos/poscat3.mp4" }
         ];
 
         // DOM Elements
