@@ -29,6 +29,9 @@
 </head>
 
 <body>
+    <a href="../../index.html" class="">Home</a><br>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm video..."
+        style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
     <div class="container">
         <!-- Video Player -->
         <video id="videoPlayer" controls>
@@ -53,6 +56,16 @@
             { title: "Video 3", src: "../videos/poscat2.mp4" }
             // { title: "Video 4", src: "../videos/poscat3.mp4" }
         ];
+        // Thêm chức năng tìm kiếm
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            document.querySelectorAll('.playlist-item').forEach((item, index) => {
+                const videoTitle = videos[index].title.toLowerCase();
+                item.style.display = videoTitle.includes(keyword) ? 'block' : 'none';
+            });
+        });
 
         // DOM Elements
         const videoPlayer = document.getElementById('videoPlayer');
