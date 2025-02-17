@@ -1,4 +1,7 @@
-
+*{
+    background-color: #000;
+    
+}
         /* CSS styling */
         .container {
             max-width: 800px;
