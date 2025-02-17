@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trình Phát Video Local</title>
+    <style>
+        /* CSS styling */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        #videoPlayer {
+            width: 100%;
+            background: #000;
+        }
+
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .playlist {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .playlist-item {
+            padding: 8px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .playlist-item:hover {
+            background: #f5f5f5;
+        }
+
+        .active {
+            background: #e3f2fd !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Video Player -->
+        <video id="videoPlayer" controls>
+            <source id="videoSource" type="video/mp4">
+        </video>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="playPauseBtn">▶</button>
+            <input type="range" id="progressBar" value="0" style="flex-grow: 1;">
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist" id="playlist"></div>
+    </div>
+
+    <script>
+        // Danh sách video local (thay đổi theo file của bạn)
+        const videos = [
+            { title: "Video 1", src: "./videos/poscat.mp4" },
+            { title: "Video 2", src: "./videos/poscat1.mp4" },
+            { title: "Video 3", src: "./videos/poscat2.mp4" }
+        ];
+
+        // DOM Elements
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+        const playlistElement = document.getElementById('playlist');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        let currentVideoIndex = 0;
+
+        // Khởi tạo trình phát
+        function initPlayer() {
+            // Tạo playlist
+            videos.forEach((video, index) => {
+                const div = document.createElement('div');
+                div.className = 'playlist-item';
+                div.textContent = video.title;
+                div.onclick = () => loadVideo(index);
+                playlistElement.appendChild(div);
+            });
+
+            // Tải video đầu tiên
+            loadVideo(0);
+        }
+
+        // Tải video
+        function loadVideo(index) {
+            currentVideoIndex = index;
+            const video = videos[index];
+
+            videoSource.src = video.src;
+            videoPlayer.load();
+            videoPlayer.play();
+
+            // Cập nhật highlight
+            updatePlaylistHighlight(index);
+        }
+
+        // Cập nhật playlist
+        function updatePlaylistHighlight(index) {
+            document.querySelectorAll('.playlist-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        // Sự kiện điều khiển
+        playPauseBtn.addEventListener('click', () => {
+            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+        });
+
+        videoPlayer.addEventListener('play', () => {
+            playPauseBtn.textContent = '⏸';
+        });
+
+        videoPlayer.addEventListener('pause', () => {
+            playPauseBtn.textContent = '▶';
+        });
+
+        // Cập nhật thanh tiến trình
+        videoPlayer.addEventListener('timeupdate', () => {
+            const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+            progressBar.value = progress || 0;
+        });
+
+        progressBar.addEventListener('input', (e) => {
+            const seekTime = (e.target.value / 100) * videoPlayer.duration;
+            videoPlayer.currentTime = seekTime;
+        });
+
+        // Tự động chuyển video tiếp theo
+        videoPlayer.addEventListener('ended', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo(currentVideoIndex);
+        });
+
+        // Xử lý lỗi
+        videoPlayer.addEventListener('error', () => {
+            console.error('Lỗi video:', videoPlayer.error);
+            alert(`Không thể phát video: ${videos[currentVideoIndex].title}`);
+        });
+
+        // Khởi động
+        initPlayer();
+    </script>
+</body>
+
+</html>
