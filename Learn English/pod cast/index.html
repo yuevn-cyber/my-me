@@ -108,6 +108,10 @@
             // Tải video đầu tiên
             loadVideo(0);
         }
+        // Tự động phát khi có tương tác
+        document.body.addEventListener('click', () => {
+            video.play().catch(() => { });
+        }, { once: true });
 
         // Tải video
         function loadVideo(index) {
