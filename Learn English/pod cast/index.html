@@ -112,6 +112,17 @@
         document.body.addEventListener('click', () => {
             video.play().catch(() => { });
         }, { once: true });
+        // Xử lý chuyển tab/tắt màn hình
+        document.addEventListener('visibilitychange', async () => {
+            if (document.hidden && !video.paused) {
+                try {
+                    await video.requestPictureInPicture();
+                    isPipEnabled = true;
+                } catch (error) {
+                    console.log('Lỗi PiP:', error);
+                }
+            }
+        });
 
         // Tải video
         function loadVideo(index) {
