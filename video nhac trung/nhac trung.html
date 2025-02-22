@@ -33,36 +33,65 @@
 
     <a href="../video.html">Video</a>
     <h1>Nhạc Trung</h1>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm video..."
+        style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+    <div class="container">
+        <!-- Video Player -->
+        <video id="videoPlayer" controls>
+            <source id="videoSource" type="video/mp4">
+        </video>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="playPauseBtn">▶</button>
+            <input type="range" id="progressBar" value="0" style="flex-grow: 1;">
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist" id="playlist"></div>
+    </div>
     <script>
         // Danh sách video local (thay đổi theo file của bạn)
         const videos = [
 
-            { title: "Video 1", src: "" },
-            { title: "Video 2", src: "" },
-            { title: "Video 3", src: "" },
-            { title: "Video 4", src: "" },
-            { title: "Video 5", src: "" },
-            { title: "Video 6", src: "" },
-            { title: "Video 7", src: "" },
-            { title: "Video 8", src: "" },
-            { title: "Video 9", src: "" },
-            { title: "Video 10", src: "" },
-            { title: "Video 11", src: "" },
-            { title: "Video 12", src: "" },
-            { title: "Video 13", src: "" },
-            { title: "Video 14", src: "" },
-            { title: "Video 15", src: "" },
-            { title: "Video 16", src: "" },
-            { title: "Video 17", src: "" },
-            { title: "Video 18", src: "" },
-            { title: "Video 19", src: "" },
-            { title: "Video 20", src: "" },
-            { title: "Video 21", src: "" },
-            { title: "Video 22", src: "" },
-            { title: "Video 23", src: "" },
-            { title: "Video 24", src: "" },
-            { title: "Video 25", src: "" },
-            { title: "Video 26", src: "" },
+            { title: "music 1", src: "./Nhạc trung/a1.mp4" },
+            { title: "music 2", src: "./Nhạc trung/a2.mp4" },
+            { title: "music 3", src: "./Nhạc trung/a3.mp4" },
+            { title: "music 4", src: "./Nhạc trung/a4.mp4" },
+            { title: "music 5", src: "./Nhạc trung/a5.mp4" },
+            { title: "music 6", src: "./Nhạc trung/a6.mp4" },
+            { title: "music 7", src: "./Nhạc trung/a7.mp4" },
+            { title: "music 8", src: "./Nhạc trung/a8.mp4" },
+            { title: "music 9", src: "./Nhạc trung/a9.mp4" },
+            { title: "music 10", src: "./Nhạc trung/a10.mp4" },
+            { title: "music 11", src: "./Nhạc trung/a11.mp4" },
+            { title: "music 12", src: "./Nhạc trung/a12.mp4" },
+            { title: "music 13", src: "./Nhạc trung/a13.mp4" },
+            { title: "music 14", src: "./Nhạc trung/a14.mp4" },
+            { title: "music 15", src: "./Nhạc trung/a15.mp4" },
+            { title: "music 16", src: "./Nhạc trung/a16.mp4" },
+            { title: "music 17", src: "./Nhạc trung/a17.mp4" },
+            { title: "music 18", src: "./Nhạc trung/a18.mp4" },
+            { title: "music 19", src: "./Nhạc trung/a19.mp4" },
+            { title: "music 20", src: "./Nhạc trung/a20.mp4" },
+            { title: "music 21", src: "./Nhạc trung/a21.mp4" },
+
+            { title: "music 23", src: "./Nhạc trung/a23.mp4" },
+            { title: "music 24", src: "./Nhạc trung/a24.mp4" },
+            { title: "music 25", src: "./Nhạc trung/a25.mp4" },
+            { title: "music 26", src: "./Nhạc trung/a26.mp4" },
+            { title: "music 27", src: "./Nhạc trung/a27.mp4" },
+            { title: "music 28", src: "./Nhạc trung/a28.mp4" },
+            { title: "music 29", src: "./Nhạc trung/a29.mp4" },
+
+            { title: "music 31", src: "./Nhạc trung/a31.mp4" },
+            { title: "music 32", src: "./Nhạc trung/a32.mp4" },
+            { title: "music 33", src: "./Nhạc trung/a33.mp4" },
+            { title: "music 34", src: "./Nhạc trung/a34.mp4" },
+            { title: "music 35", src: "./Nhạc trung/a35.mp4" },
+            { title: "music 36", src: "./Nhạc trung/a36.mp4" },
+
+
 
 
         ];
