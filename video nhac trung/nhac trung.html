@@ -33,17 +33,150 @@
 
     <a href="../video.html">Video</a>
     <h1>Nhạc Trung</h1>
-    <video loop controls muted
-        src="./Nhạc trung/y2mate.com - Tik Tok Remix Em Bằng Lòng Làm Một Người Bình Thường Ở Bên Cạnh Anh_360p.mp4"
-        width="200px"></video>
-    <br>
-    <br>
-    <video loop controls muted
-        src="./Nhạc trung/y2mate.com - VietsubKara 蔡健雅 Thái Kiện Nhã  红色高跟鞋 Giày cao gót màu đỏ_360p.mp4"
-        width="200px"></video><br>
-    <video loop controls autoplay muted
-        src="./Nhạc trung/y2mate.com - VIETSUBVÃN DẠ VI VŨ VẤN HẢI ĐƯỜNG Bản thuần ca Husky và sư tôn mèo trắng của hắn 晚夜微雨问海棠_360p.mp4"
-        width="200px"></video>
+    <script>
+        // Danh sách video local (thay đổi theo file của bạn)
+        const videos = [
+
+            { title: "Video 1", src: "" },
+            { title: "Video 2", src: "" },
+            { title: "Video 3", src: "" },
+            { title: "Video 4", src: "" },
+            { title: "Video 5", src: "" },
+            { title: "Video 6", src: "" },
+            { title: "Video 7", src: "" },
+            { title: "Video 8", src: "" },
+            { title: "Video 9", src: "" },
+            { title: "Video 10", src: "" },
+            { title: "Video 11", src: "" },
+            { title: "Video 12", src: "" },
+            { title: "Video 13", src: "" },
+            { title: "Video 14", src: "" },
+            { title: "Video 15", src: "" },
+            { title: "Video 16", src: "" },
+            { title: "Video 17", src: "" },
+            { title: "Video 18", src: "" },
+            { title: "Video 19", src: "" },
+            { title: "Video 20", src: "" },
+            { title: "Video 21", src: "" },
+            { title: "Video 22", src: "" },
+            { title: "Video 23", src: "" },
+            { title: "Video 24", src: "" },
+            { title: "Video 25", src: "" },
+            { title: "Video 26", src: "" },
+
+
+        ];
+        // Thêm chức năng tìm kiếm
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            document.querySelectorAll('.playlist-item').forEach((item, index) => {
+                const videoTitle = videos[index].title.toLowerCase();
+                item.style.display = videoTitle.includes(keyword) ? 'block' : 'none';
+            });
+        });
+
+        // DOM Elements
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+        const playlistElement = document.getElementById('playlist');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        let currentVideoIndex = 0;
+
+        // Khởi tạo trình phát
+        function initPlayer() {
+            // Tạo playlist
+            videos.forEach((video, index) => {
+                const div = document.createElement('div');
+                div.className = 'playlist-item';
+                div.textContent = video.title;
+                div.onclick = () => loadVideo(index);
+                playlistElement.appendChild(div);
+            });
+
+            // Tải video đầu tiên
+            loadVideo(0);
+        }
+        // Tự động phát khi có tương tác
+        document.body.addEventListener('click', () => {
+            video.play().catch(() => { });
+        }, { once: true });
+        // Xử lý chuyển tab/tắt màn hình
+        document.addEventListener('visibilitychange', async () => {
+            if (document.hidden && !video.paused) {
+                try {
+                    await video.requestPictureInPicture();
+                    isPipEnabled = true;
+                } catch (error) {
+                    console.log('Lỗi PiP:', error);
+                }
+            }
+        });
+
+        // Tải video
+        function loadVideo(index) {
+            currentVideoIndex = index;
+            const video = videos[index];
+
+            videoSource.src = video.src;
+            videoPlayer.load();
+            videoPlayer.play();
+
+            // Cập nhật highlight
+            updatePlaylistHighlight(index);
+        }
+
+        // Cập nhật playlist
+        function updatePlaylistHighlight(index) {
+            document.querySelectorAll('.playlist-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        // Sự kiện điều khiển
+        playPauseBtn.addEventListener('click', () => {
+            videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
+        });
+
+        videoPlayer.addEventListener('play', () => {
+            playPauseBtn.textContent = '⏸';
+        });
+
+        videoPlayer.addEventListener('pause', () => {
+            playPauseBtn.textContent = '▶';
+        });
+
+        // Cập nhật thanh tiến trình
+        videoPlayer.addEventListener('timeupdate', () => {
+            const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+            progressBar.value = progress || 0;
+        });
+
+        progressBar.addEventListener('input', (e) => {
+            const seekTime = (e.target.value / 100) * videoPlayer.duration;
+            videoPlayer.currentTime = seekTime;
+        });
+
+        // Tự động chuyển video tiếp theo
+        videoPlayer.addEventListener('ended', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo(currentVideoIndex);
+        });
+
+        // Xử lý lỗi
+        videoPlayer.addEventListener('error', () => {
+            console.error('Lỗi video:', videoPlayer.error);
+            alert(`Không thể phát video: ${videos[currentVideoIndex].title}`);
+        });
+
+        // Khởi động
+        initPlayer();
+    </script>
+
+
 </body>
 
 </html>
