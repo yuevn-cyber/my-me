@@ -7,9 +7,11 @@ h3{
     opacity:30%;
     
 }
-.learn{
+.learn,a{
     font-size:30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration:none;
+    
 
 }
 a:hover{
@@ -38,4 +40,7 @@ input:checked ~ img{
     opacity:0;
     display:none;
 
+}
+.home{
+    font-size: 14px;
 }

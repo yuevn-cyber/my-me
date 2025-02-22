@@ -40,3 +40,26 @@ img{
     background-repeat:no-repeat;
     background-attachment:fixed;
 }
+#video{
+    background-image: url("./thugian.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#amnhac{
+    background-image: url("./video nhac trung/amnhac.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+#haihuoc{
+    background-image:url("./video dthuong/haihuoc.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size:cover;
+
+}

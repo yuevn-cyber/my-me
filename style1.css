@@ -18,3 +18,8 @@ a:active{
     background-color: aquamarine;
     color:darkmagenta;
 }
+a,li {
+    list-style: none;
+    text-align:start;
+    text-decoration: none;
+}
