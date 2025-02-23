@@ -26,6 +26,7 @@ const videos = [
     { title: "Video 24", src: "../videos/podcast24.mp4" },
     { title: "Video 25", src: "../videos/podcast25.mp4" },
     { title: "Video 26", src: "../videos/podcast26.mp4" },
+    { title: "Video 27", src: "../videos/podcast27.mp4" },
 ];
 
 // DOM Elements
