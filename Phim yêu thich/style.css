@@ -4,14 +4,17 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #8a4df4, #ff914d);
-    height: 100vh; 
+    height: 400px; 
+    
+}
+.xem{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-
 .navbar {
     position: absolute;
     top: 20px;
@@ -48,11 +51,12 @@ body {
     display: block;
 }
 .content{
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 .web {
+    margin-left: -100px ;
     color: #b24dcf;
-    margin-left:-200px
+   
 }
 
 .xem-phim {
@@ -60,19 +64,16 @@ body {
 }
 
 .yeu-thich {
-    margin-right:-200px;
+    margin-left: 150px;
     color: #c64b00;
 }
-.phim{
-    width:200px;
-    height:200px;
-    border:20px;
-    list-style-type: none;
-    margin-left:-600px;
-    margin-top:-200px;
+a{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style:italic;
+    
 }
 .text{
-    margin-left:-400px;
-    opacity:0.5;
+   opacity:0.5
     
 }
