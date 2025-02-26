@@ -10,16 +10,16 @@ a:visited{
     color:red;
 }
 a:active{
-    pink;
+    color:pink;
 }
 .learn{
-    border:2px solid yellow;
+    margin:0;
+    
     display:inline-block;
     background-color: aquamarine;
-    color:darkmagenta;
+    text-decoration:none;
 }
-a,li {
-    list-style: none;
-    text-align:start;
-    text-decoration: none;
+
+li{
+    list-style-type: none;
 }
