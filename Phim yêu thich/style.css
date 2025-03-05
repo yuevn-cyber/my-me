@@ -1,24 +1,36 @@
-
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background: -webkit-gradient(linear, left top, right top, from(#8a4df4), to(#ff914d));
+    background: -o-linear-gradient(left, #8a4df4, #ff914d);
     background: linear-gradient(to right, #8a4df4, #ff914d);
     height: 400px; 
     
 }
 .xem{
     margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
 }
 .navbar {
     position: absolute;
     top: 20px;
     right: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 20px;
 }
