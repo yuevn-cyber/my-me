@@ -31,6 +31,10 @@ const videos = [
     { title: "Video 29", src: "../videos/podcast29.mp4" },
     { title: "Video 30", src: "../videos/podcast30.mp4" },
     { title: "Video 31", src: "../videos/podcast31.mp4" },
+    { title: "Video 32", src: "../videos/podcast32.mp4" },
+    { title: "Video 33", src: "../videos/podcast33.mp4" },
+    { title: "Video 34", src: "../videos/podcast34.mp4" },
+    { title: "Video 35", src: "../videos/podcast35.mp4" },
 ];
 
 // DOM Elements
